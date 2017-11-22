@@ -5,6 +5,8 @@ from django.db import models
 import uuid
 import datetime
 
+from user.models import User
+
 
 class TuanFeature(models.Model):
 
@@ -53,6 +55,7 @@ class ShopInfo(models.Model):
     create_time = models.DateTimeField(auto_now=True)
 
     category = models.ManyToManyField(FoodCategory)
+    user = models.ForeignKey(User, blank=True, null=True)
 
     def __unicode__(self):
         return self.name
