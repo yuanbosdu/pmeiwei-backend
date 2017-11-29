@@ -5,6 +5,7 @@ from django.db import models
 import uuid
 import datetime
 
+from ckeditor.fields import RichTextField
 from user.models import User
 
 
@@ -67,7 +68,7 @@ class ShopInfo(models.Model):
 class Food(models.Model):
 
     name = models.CharField(max_length=200)
-    description = models.TextField()
+    description = RichTextField()
 
     normal_price = models.DecimalField(max_digits=6, decimal_places=2)
     pintuan_price = models.DecimalField(max_digits=6, decimal_places=2)
@@ -89,6 +90,8 @@ class FoodImages(models.Model):
 
 
 class PinTuan(models.Model):
+
+    __name__ = "拼團"
 
     name = models.CharField(max_length=200, default='PinTuan')
     food = models.ForeignKey(Food)
