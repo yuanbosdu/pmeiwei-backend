@@ -8,7 +8,7 @@ from django.contrib.auth.models import AbstractUser
 
 
 def user_upload_to(instance, filename):
-    return os.path.join(settings.MEDIA_ROOT, instance.username, filename)
+    return os.path.join(instance.username, filename)
 
 
 class User(AbstractUser):
